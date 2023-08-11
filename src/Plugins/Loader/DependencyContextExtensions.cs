@@ -180,7 +180,7 @@ namespace McMaster.NETCore.Plugins.Loader
             return from library in depContext.RuntimeLibraries
                    from assetPath in SelectAssets(rids, library.NativeLibraryGroups)
                        // some packages include symbols alongside native assets, such as System.Native.a or pwshplugin.pdb
-                   where PlatformInformation.NativeLibraryExtensions.Contains(Path.GetExtension(assetPath), StringComparer.OrdinalIgnoreCase)
+                   where PlatformInformation.NATIVE_LIBRARY_EXTENSIONS.Contains(Path.GetExtension(assetPath), StringComparer.OrdinalIgnoreCase)
                    select NativeLibrary.CreateFromPackage(library.Name, library.Version, assetPath);
         }
 

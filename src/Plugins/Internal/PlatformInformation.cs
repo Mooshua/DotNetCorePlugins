@@ -9,9 +9,9 @@ namespace McMaster.NETCore.Plugins
 {
     internal class PlatformInformation
     {
-        public static readonly string[] NativeLibraryExtensions;
-        public static readonly string[] NativeLibraryPrefixes;
-        public static readonly string[] ManagedAssemblyExtensions = new[]
+        public static readonly string[] NATIVE_LIBRARY_EXTENSIONS;
+        public static readonly string[] NATIVE_LIBRARY_PREFIXES;
+        public static readonly string[] MANAGED_ASSEMBLY_EXTENSIONS = new[]
         {
                 ".dll",
                 ".ni.dll",
@@ -23,24 +23,24 @@ namespace McMaster.NETCore.Plugins
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                NativeLibraryPrefixes = new[] { "" };
-                NativeLibraryExtensions = new[] { ".dll" };
+                NATIVE_LIBRARY_PREFIXES = new[] { "" };
+                NATIVE_LIBRARY_EXTENSIONS = new[] { ".dll" };
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
-                NativeLibraryPrefixes = new[] { "", "lib", };
-                NativeLibraryExtensions = new[] { ".dylib" };
+                NATIVE_LIBRARY_PREFIXES = new[] { "", "lib", };
+                NATIVE_LIBRARY_EXTENSIONS = new[] { ".dylib" };
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-                NativeLibraryPrefixes = new[] { "", "lib" };
-                NativeLibraryExtensions = new[] { ".so", ".so.1" };
+                NATIVE_LIBRARY_PREFIXES = new[] { "", "lib" };
+                NATIVE_LIBRARY_EXTENSIONS = new[] { ".so", ".so.1" };
             }
             else
             {
                 Debug.Fail("Unknown OS type");
-                NativeLibraryPrefixes = Array.Empty<string>();
-                NativeLibraryExtensions = Array.Empty<string>();
+                NATIVE_LIBRARY_PREFIXES = Array.Empty<string>();
+                NATIVE_LIBRARY_EXTENSIONS = Array.Empty<string>();
             }
         }
     }

@@ -217,7 +217,7 @@ namespace McMaster.NETCore.Plugins.Loader
             }
 #endif
 
-            foreach (var prefix in PlatformInformation.NativeLibraryPrefixes)
+            foreach (var prefix in PlatformInformation.NATIVE_LIBRARY_PREFIXES)
             {
                 if (_nativeLibraries.TryGetValue(prefix + unmanagedDllName, out var library))
                 {
@@ -232,7 +232,7 @@ namespace McMaster.NETCore.Plugins.Loader
                     // This library treats the file name without the extension as the lookup name,
                     // so this loop is necessary to check if the unmanaged name matches a library
                     // when the file extension has been trimmed.
-                    foreach (var suffix in PlatformInformation.NativeLibraryExtensions)
+                    foreach (var suffix in PlatformInformation.NATIVE_LIBRARY_EXTENSIONS)
                     {
                         if (!unmanagedDllName.EndsWith(suffix, StringComparison.OrdinalIgnoreCase))
                         {
@@ -301,7 +301,7 @@ namespace McMaster.NETCore.Plugins.Loader
             }
 
             // 3. Search in base path
-            foreach (var ext in PlatformInformation.ManagedAssemblyExtensions)
+            foreach (var ext in PlatformInformation.MANAGED_ASSEMBLY_EXTENSIONS)
             {
                 var local = Path.Combine(_basePath, library.Name.Name + ext);
                 if (File.Exists(local))
@@ -318,7 +318,7 @@ namespace McMaster.NETCore.Plugins.Loader
         private bool SearchForLibrary(NativeLibrary library, string prefix, out string? path)
         {
             // 1. Search in base path
-            foreach (var ext in PlatformInformation.NativeLibraryExtensions)
+            foreach (var ext in PlatformInformation.NATIVE_LIBRARY_EXTENSIONS)
             {
                 var candidate = Path.Combine(_basePath, $"{prefix}{library.Name}{ext}");
                 if (File.Exists(candidate))

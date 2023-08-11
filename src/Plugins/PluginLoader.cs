@@ -242,7 +242,7 @@ namespace McMaster.NETCore.Plugins
 
             _fileWatcher = new FileSystemWatcher
             {
-                Path = Path.GetDirectoryName(_config.MainAssemblyPath)
+                Path = Path.GetFileName(_config.MainAssemblyPath)
             };
             _fileWatcher.Changed += OnFileChanged;
             _fileWatcher.Filter = "*.dll";

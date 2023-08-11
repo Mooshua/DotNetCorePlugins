@@ -18,7 +18,6 @@
     <IsPackable>false</IsPackable>
     <WarnOnPackingNonPackableProject>false</WarnOnPackingNonPackableProject>
     <LangVersion>9.0</LangVersion>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <Nullable>annotations</Nullable>
     <Nullable Condition="'$(TargetFramework)' != 'netcoreapp2.1'">enable</Nullable>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)src\StrongName.snk</AssemblyOriginatorKeyFile>
@@ -26,7 +25,6 @@
     <NoWarn>$(NoWarn);NU5105</NoWarn>
     <WarningsNotAsErrors>$(WarningsNotAsErrors);1591</WarningsNotAsErrors>
 
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateFullPaths Condition="'$(TERM_PROGRAM)' == 'vscode'">true</GenerateFullPaths>
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
     <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory).build\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>

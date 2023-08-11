@@ -5,6 +5,7 @@ namespace McMaster.NETCore.Plugins
 {
     internal class RuntimeConfig
     {
+        // ReSharper disable once InconsistentNaming
         public RuntimeOptions? runtimeOptions { get; set; }
     }
 }
