@@ -242,7 +242,7 @@ namespace McMaster.NETCore.Plugins
 
             _fileWatcher = new FileSystemWatcher
             {
-                Path = Path.GetFileName(_config.MainAssemblyPath)
+                Path = Path.GetDirectoryName(_config.MainAssemblyPath) ?? throw new InvalidOperationException($"Directory name of {_config.MainAssemblyPath} is null")
             };
             _fileWatcher.Changed += OnFileChanged;
             _fileWatcher.Filter = "*.dll";
