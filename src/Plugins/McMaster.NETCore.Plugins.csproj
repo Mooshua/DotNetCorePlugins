@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;</TargetFrameworks>
+    <TargetFramework>net6.0</TargetFramework>
     <!--
       The netcoreapp2.1 API is a subset of the API available in netcoreapp3.1. The public API tool doesn't handle multiple TFMs.
       https://github.com/dotnet/roslyn-analyzers/issues/2621
@@ -9,7 +9,8 @@
     <DisablePublicApiAnalyzer Condition="'$(TargetFramework)' == 'netcoreapp2.1'">true</DisablePublicApiAnalyzer>
     <OutputType>library</OutputType>
     <IsPackable>true</IsPackable>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <DebugType>embedded</DebugType>
     <PackageDescription>Provides API for dynamically loading assemblies into a .NET application.
 
 This package should be used by the host application which needs to load plugins.
